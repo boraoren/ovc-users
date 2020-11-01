@@ -26,4 +26,4 @@ yarn-error.log*
 .idea
 
 # testing
-.jest-test-results.json
+src/.jest-test-results.json

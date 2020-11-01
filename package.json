@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:generate-output": "react-scripts test --json --outputFile=.jest-test-results.json",
+    "test:generate-output": "react-scripts test --json --outputFile=src/.jest-test-results.json || false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "prebuild:storybook": "npm run test:generate-output",
