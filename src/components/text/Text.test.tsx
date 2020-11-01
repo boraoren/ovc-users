@@ -4,7 +4,7 @@ import {Text} from "./index";
 
 describe("<Text> component", ()=>{
 
-    test("should displays TEXT", ()=>{
+    test("expected display label is TEXT", ()=>{
         render(<Text />)
         const component = screen.getByTestId('textID');
         expect(component).toHaveTextContent('TEXT');

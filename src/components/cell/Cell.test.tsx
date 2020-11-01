@@ -11,12 +11,12 @@ describe("<Cell> component", () => {
         cellComponent = screen.getByTestId('cellID');
     })
 
-    test("should expected background color be white", () => {
+    test("expected background color is white", () => {
         const expectedBackgroundColor = "white";
         expect(cellComponent).toHaveStyle(`background-color: ${expectedBackgroundColor}`)
     });
 
-    test("should expected border bottom size is 1, type is solid and color is D7D7D7", () => {
+    test("expected border bottom size is 1, type is solid and color is D7D7D7", () => {
         const expectedBorderBottom = "1px solid #D7D7D7";
         expect(cellComponent).toHaveStyle(`border-bottom: ${expectedBorderBottom}`);
     });
