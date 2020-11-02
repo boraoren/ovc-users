@@ -53,4 +53,25 @@ describe("<Header> component", () => {
             expect(headerComponent).toHaveStyle(`display: ${expectedStyleDisplay}`);
         });
 
+    test("expected content justification is space around",
+        () => {
+
+            const object: object = {
+                name: 'Leanne',
+                surname: 'Graham',
+            }
+
+            render(<Header
+                dataTestId={"dataTestId"}
+                object={object}
+            />)
+
+            const headerComponent = screen
+                .getByTestId("dataTestId");
+
+            const expectedJustification = "space-around";
+
+            expect(headerComponent).toHaveStyle(`justify-content: ${expectedJustification}`);
+        });
+
 })

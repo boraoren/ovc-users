@@ -25,6 +25,7 @@ export const Header: React.FC<HeaderProps> = (
             data-testid={dataTestId}
             style={{
                 display: "flex",
+                justifyContent: "space-around"
             }}>
             {getHeaderColumnTitlesBy(object)}
         </div>
