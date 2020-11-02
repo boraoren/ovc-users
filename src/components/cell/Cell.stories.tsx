@@ -7,7 +7,9 @@ export default {
     component: Cell,
 } as Meta;
 
-export const defaultView = () =>  <Cell/>;
+export const defaultView = () =>  <Cell
+    dataTestId={"dataTestId"}
+/>;
 
 defaultView.parameters = {
     jest: ['Cell.test.tsx']

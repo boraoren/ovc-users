@@ -1,14 +1,24 @@
-import React from "react";
+import React, {ReactElement} from "react";
 
-export const Cell = () => {
-    return(
+interface CellProps {
+    dataTestId: string;
+    children: ReactElement;
+}
+
+export const Cell: React.FC<CellProps> = (
+    {
+        dataTestId,
+        children
+    }) => {
+
+    return (
         <div
-            data-testid={"cellID"}
+            data-testid={dataTestId}
             style={{
                 backgroundColor: "white",
                 borderBottom: "1px solid #D7D7D7",
             }}>
-            CELL
+            {children}
         </div>
     )
 }
