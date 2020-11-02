@@ -1,7 +1,7 @@
 import React from 'react';
-import {render} from '@testing-library/react'
-import {createMemoryHistory} from 'history'
-import {Router} from 'react-router-dom'
+import {render,waitFor} from '@testing-library/react';
+import {createMemoryHistory} from 'history';
+import {Router} from 'react-router-dom';
 import App from "./App";
 
 
@@ -17,14 +17,7 @@ describe("<App>", () => {
             </Router>
         )
 
-        const wait = (expectFunction: Function) => new Promise((resolve) =>
-            setTimeout(resolve, 100))
-            .then(() => {
-                expectFunction();
-            });
-
-
-        await wait(() => expect(document.title)
+        await waitFor(() => expect(document.title)
             .toEqual("User List"));
 
     });
