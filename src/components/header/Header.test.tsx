@@ -31,4 +31,26 @@ describe("<Header> component", () => {
 
         })
 
+
+    test("expected style / display is flex for header column title elements",
+        () => {
+
+            const object: object = {
+                name: 'Leanne',
+                surname: 'Graham',
+            }
+
+            render(<Header
+                dataTestId={"dataTestId"}
+                object={object}
+            />)
+
+            const headerComponent = screen
+                .getByTestId("dataTestId");
+
+            const expectedStyleDisplay = "flex";
+
+            expect(headerComponent).toHaveStyle(`display: ${expectedStyleDisplay}`);
+        });
+
 })

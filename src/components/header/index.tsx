@@ -21,7 +21,11 @@ export const Header: React.FC<HeaderProps> = (
         object
     }) => {
     return (
-        <div data-testid={dataTestId}>
+        <div
+            data-testid={dataTestId}
+            style={{
+                display: "flex",
+            }}>
             {getHeaderColumnTitlesBy(object)}
         </div>
     )
