@@ -97,4 +97,5 @@ describe("<Table> component", () => {
                 .toHaveStyle(`margin-left:${expectedLeft}px`);
         })
 
+
 });

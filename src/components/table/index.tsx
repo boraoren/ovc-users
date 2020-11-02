@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {Text} from "../text";
 import {Cell} from "../cell";
 import {User} from "../../models/User";
 
 interface TableProps {
     users: User[];
+    header?: ReactElement;
 }
 
 
@@ -12,6 +13,7 @@ const getTableContentBy = (user: any) => {
     return Object.keys(user).map(key => {
             return (
                 <Cell
+                    key={key}
                     dataTestId={`${key}CellDataTestId`}>
 
                     <Text
@@ -32,12 +34,14 @@ const getTableContentBy = (user: any) => {
 export const Table: React.FC<TableProps> = (
     {
         users,
+        header
     }
 ) => {
 
 
     return (
         <>
+            {header}
             {users.map(user =>
                 getTableContentBy(user)
             )}
