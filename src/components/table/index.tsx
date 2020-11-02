@@ -20,6 +20,7 @@ const getTableContentBy = (user: any) => {
                         style={{
                             marginTop: 16,
                             marginBottom: 16,
+                            marginLeft: 16,
                         }}/>
 
                 </Cell>

@@ -30,6 +30,7 @@ describe("<Table> component", () => {
                         style={{
                             marginTop: 16,
                             marginBottom: 16,
+                            marginLeft: 16,
                         }}/>))
                 .toEqual(true);
         });
@@ -46,6 +47,7 @@ describe("<Table> component", () => {
                             style={{
                                 marginTop: 16,
                                 marginBottom: 16,
+                                marginLeft: 16,
                             }}/>
                     </Cell>
                 ))
@@ -83,6 +85,16 @@ describe("<Table> component", () => {
 
             expect(nameTextComponent)
                 .toHaveStyle(`margin-bottom:${expectedBottom}px`);
+        })
+
+    test(`<Text/> component left 16`,
+        () => {
+            render(<Table users={users}/>)
+            const nameTextComponent = screen.getByTestId("nameTextDataTestId");
+            const expectedLeft = 16;
+
+            expect(nameTextComponent)
+                .toHaveStyle(`margin-left:${expectedLeft}px`);
         })
 
 });

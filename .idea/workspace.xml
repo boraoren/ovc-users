@@ -149,7 +149,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604027792890</updated>
-      <workItem from="1604027794270" duration="40077000" />
+      <workItem from="1604027794270" duration="40442000" />
     </task>
     <servers />
   </component>
@@ -200,5 +200,17 @@
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
     <state x="751" y="-1113" width="838" height="1032" key="search.everywhere.popup/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604214905542" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/table/Table.test.tsx</url>
+          <line>89</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
