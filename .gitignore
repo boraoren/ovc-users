@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # intellij
-.ideat
+.idea
 
 # testing
 .jest-test-results.json
