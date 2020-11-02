@@ -27,7 +27,10 @@ describe("<Table> component", () => {
                     <Text
                         dataTestId={"nameTextDataTestId"}
                         value={"Leanne Graham"}
-                        style={{marginTop: 16}}/>))
+                        style={{
+                            marginTop: 16,
+                            marginBottom: 16,
+                        }}/>))
                 .toEqual(true);
         });
 
@@ -40,7 +43,10 @@ describe("<Table> component", () => {
                         <Text
                             dataTestId={"nameTextDataTestId"}
                             value={"Leanne Graham"}
-                            style={{marginTop: 16}}/>
+                            style={{
+                                marginTop: 16,
+                                marginBottom: 16,
+                            }}/>
                     </Cell>
                 ))
                 .toEqual(true);
@@ -67,6 +73,16 @@ describe("<Table> component", () => {
 
             expect(nameTextComponent)
                 .toHaveStyle(`margin-top:${expectedTop}px`);
+        })
+
+    test(`<Text/> component bottom 16`,
+        () => {
+            render(<Table users={users}/>)
+            const nameTextComponent = screen.getByTestId("nameTextDataTestId");
+            const expectedBottom = 16;
+
+            expect(nameTextComponent)
+                .toHaveStyle(`margin-bottom:${expectedBottom}px`);
         })
 
 });
