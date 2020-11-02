@@ -13,9 +13,12 @@ const getTableContentBy = (user: any) => {
             return (
                 <Cell
                     dataTestId={`${key}CellDataTestId`}>
+
                     <Text
                         dataTestId={`${key}TextDataTestId`}
-                        value={user[key]}/>
+                        value={user[key]}
+                        style={{marginTop: 16}}/>
+
                 </Cell>
             )
         }

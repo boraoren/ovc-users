@@ -21,10 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dbbd940c-d455-46d9-8a65-46073187d99c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cell/Cell.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cell/Cell.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cell/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cell/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/table/Table.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/Table.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/text/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
       <recent name="$PROJECT_DIR$/src/stories" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.&lt;Cell&gt; component">
+  <component name="RunManager" selected="Jest.&lt;Table&gt; component.has &lt;Cell/&gt; component">
     <configuration name="&lt;Cell&gt; component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -77,16 +76,17 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="&lt;Table&gt; component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="&lt;Table&gt; component.&lt;Text/&gt; component top 16" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="SUITE" />
+      <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/components/table/Table.test.tsx" />
       <test-names>
         <test-name value="&lt;Table&gt; component" />
+        <test-name value="&lt;Text/&gt; component top 16" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -104,6 +104,20 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="&lt;Table&gt; component.has &lt;Text/&gt; component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/table/Table.test.tsx" />
+      <test-names>
+        <test-name value="&lt;Table&gt; component" />
+        <test-name value="has &lt;Text/&gt; component" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="&lt;Table&gt; component.has name type &lt;Cell/&gt; component and &lt;Text/&gt; component value is Leanne Graham" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -118,27 +132,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="&lt;Text&gt; component.expected display label is TEXT" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/text/Text.test.tsx" />
-      <test-names>
-        <test-name value="&lt;Text&gt; component" />
-        <test-name value="expected display label is TEXT" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.&lt;Cell&gt; component" />
-        <item itemvalue="Jest.&lt;Table&gt; component" />
         <item itemvalue="Jest.&lt;Table&gt; component.has &lt;Cell/&gt; component" />
+        <item itemvalue="Jest.&lt;Table&gt; component.has &lt;Text/&gt; component" />
+        <item itemvalue="Jest.&lt;Table&gt; component.&lt;Text/&gt; component top 16" />
         <item itemvalue="Jest.&lt;Table&gt; component.has name type &lt;Cell/&gt; component and &lt;Text/&gt; component value is Leanne Graham" />
-        <item itemvalue="Jest.&lt;Text&gt; component.expected display label is TEXT" />
+        <item itemvalue="Jest.&lt;Cell&gt; component" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +150,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604027792890</updated>
-      <workItem from="1604027794270" duration="38190000" />
+      <workItem from="1604027794270" duration="39844000" />
     </task>
     <servers />
   </component>
@@ -177,26 +177,26 @@
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
     <state x="273" y="-1311" width="1795" height="1138" key="DiffContextDialog/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604285442308" />
-    <state width="1943" height="272" key="GridCell.Tab.0.bottom" timestamp="1604291760296">
+    <state width="1943" height="272" key="GridCell.Tab.0.bottom" timestamp="1604293494143">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
-    <state width="1943" height="272" key="GridCell.Tab.0.bottom/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604291760296" />
-    <state width="1943" height="272" key="GridCell.Tab.0.center" timestamp="1604291760292">
+    <state width="1943" height="272" key="GridCell.Tab.0.bottom/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604293494143" />
+    <state width="1943" height="272" key="GridCell.Tab.0.center" timestamp="1604293494142">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
-    <state width="1943" height="272" key="GridCell.Tab.0.center/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604291760292" />
-    <state width="1943" height="272" key="GridCell.Tab.0.left" timestamp="1604291760291">
+    <state width="1943" height="272" key="GridCell.Tab.0.center/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604293494142" />
+    <state width="1943" height="272" key="GridCell.Tab.0.left" timestamp="1604293494142">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
-    <state width="1943" height="272" key="GridCell.Tab.0.left/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604291760291" />
-    <state width="1943" height="272" key="GridCell.Tab.0.right" timestamp="1604291760296">
+    <state width="1943" height="272" key="GridCell.Tab.0.left/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604293494142" />
+    <state width="1943" height="272" key="GridCell.Tab.0.right" timestamp="1604293494143">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
-    <state width="1943" height="272" key="GridCell.Tab.0.right/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604291760296" />
-    <state x="798" y="-1050" width="744" height="616" key="find.popup" timestamp="1604291044854">
+    <state width="1943" height="272" key="GridCell.Tab.0.right/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604293494143" />
+    <state x="798" y="-1050" width="744" height="616" key="find.popup" timestamp="1604292301297">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>
-    <state x="798" y="-1050" width="744" height="616" key="find.popup/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604291044854" />
+    <state x="798" y="-1050" width="744" height="616" key="find.popup/0.23.1280.777/-1084.-1417.3440.1417@-1084.-1417.3440.1417" timestamp="1604292301297" />
     <state x="751" y="-1113" width="838" height="1032" key="search.everywhere.popup" timestamp="1604214905542">
       <screen x="-1084" y="-1417" width="3440" height="1417" />
     </state>

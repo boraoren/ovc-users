@@ -26,7 +26,8 @@ describe("<Table> component", () => {
                 .contains(
                     <Text
                         dataTestId={"nameTextDataTestId"}
-                        value={"Leanne Graham"}/>))
+                        value={"Leanne Graham"}
+                        style={{marginTop: 16}}/>))
                 .toEqual(true);
         });
 
@@ -38,7 +39,8 @@ describe("<Table> component", () => {
                         dataTestId={"nameCellDataTestId"}>
                         <Text
                             dataTestId={"nameTextDataTestId"}
-                            value={"Leanne Graham"}/>
+                            value={"Leanne Graham"}
+                            style={{marginTop: 16}}/>
                     </Cell>
                 ))
                 .toEqual(true);
@@ -47,9 +49,7 @@ describe("<Table> component", () => {
 
     test(`has name type <Cell/> component and <Text/> component value is Leanne Graham`,
         () => {
-
             render(<Table users={users}/>)
-
             const nameCellComponent = screen.getByTestId("nameCellDataTestId");
             expect(nameCellComponent).toBeTruthy();
 
@@ -59,5 +59,14 @@ describe("<Table> component", () => {
 
         });
 
+    test(`<Text/> component top 16`,
+        () => {
+            render(<Table users={users}/>)
+            const nameTextComponent = screen.getByTestId("nameTextDataTestId");
+            const expectedTop = 16;
+
+            expect(nameTextComponent)
+                .toHaveStyle(`margin-top:${expectedTop}px`);
+        })
 
 });
