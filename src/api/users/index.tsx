@@ -2,6 +2,7 @@ import {User} from "../../models/User";
 import axios from "axios";
 import {GetUsersApiError} from "../errors/GetUsersApiError";
 import {UserDetail} from "../../models/UserDetail";
+import {GetUserDetailsApiError} from "../errors/GetUserDetailsApiError";
 
 interface CompanyApiModel {
     name: string,
@@ -90,7 +91,7 @@ export const getUserDetailsApi = async (url: string,
         return {userDetails}
 
     } catch (error) {
-        throw new GetUsersApiError();
+        throw new GetUserDetailsApiError();
     }
 
 }
