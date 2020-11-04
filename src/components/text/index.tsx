@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface TextProps {
-    dataTestId: string;
+    dataTestId?: string;
     value: string;
     style?: any;
 }
 
 export const Text: React.FC<TextProps> = (
     {
-        dataTestId,
+        dataTestId= "textDataTestId",
         value,
         style,
     }

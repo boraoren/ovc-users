@@ -1,13 +1,13 @@
 import React, {ReactElement} from "react";
 
 interface CellProps {
-    dataTestId: string;
+    dataTestId?: string;
     children: ReactElement;
 }
 
 export const Cell: React.FC<CellProps> = (
     {
-        dataTestId,
+        dataTestId = "cellDataTestId",
         children
     }) => {
 

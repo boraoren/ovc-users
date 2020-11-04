@@ -2,13 +2,13 @@ import React from 'react';
 import {Text} from "../text";
 
 interface HeaderProps {
-    dataTestId: string;
+    dataTestId?: string;
     columnTitles: string[];
 }
 
 export const Header: React.FC<HeaderProps> = (
     {
-        dataTestId,
+        dataTestId= "headerDataTestId",
         columnTitles
     }) => {
     return (
