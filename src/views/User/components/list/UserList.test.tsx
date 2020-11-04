@@ -92,9 +92,17 @@ describe("<UserList/> reducer", () => {
             await store.dispatch(getUsers());
             let state = store.getState().userList;
             expect(state.users.length).toEqual(10);
+            expect(state.isGetUsersFailed).toBeFalsy();
             expect(state.users[0].name).toContain("Leanne Graham")
         });
 
+    it("getUsersReducer should failed and state isGetUsersFailed will be true",
+        async () => {
+            const wrongUrl = "https://jsonplaceholder.typicode.com/users1234";
+            await store.dispatch(getUsers(wrongUrl));
+            let state = store.getState().userList;
+            expect(state.isGetUsersFailed).toBeTruthy();
+        });
 
 
 });

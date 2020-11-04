@@ -8,20 +8,33 @@ const UserListContainer = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getUsers());
-    }, [])
-
-    const {users} = useSelector(
+    const {users, isGetUsersFailed} = useSelector(
         (state: RootState) => {
             return {
-                users: state.userList.users
+                users: state.userList.users,
+                isGetUsersFailed: state.userList.isGetUsersFailed,
             }
         }
     )
 
+    useEffect(() => {
+        dispatch(getUsers());
+        console.log('i fire once');
+    }, [dispatch])
+
+
+    const showWarningMessage = () =>
+        <div style={{fontSize: 30, margin: "auto", width: "50%", padding: 10 }}>
+            SOMETHING HAPPENS, TRY AGAIN LATER!!!
+        </div>
+
     return (
-        <UserList users={users}/>
+        <>
+            <UserList users={users}/>
+            {isGetUsersFailed ?
+                showWarningMessage()
+                : ""}
+        </>
     )
 }
 

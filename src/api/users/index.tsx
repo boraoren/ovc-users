@@ -1,5 +1,6 @@
 import {User} from "../../models/User";
 import axios from "axios";
+import {GetUsersApiError} from "../errors/GetUsersApiError";
 
 interface CompanyApiModel {
     name: string,
@@ -35,22 +36,25 @@ interface GetUsersResponse {
     users: User[];
 }
 
-export const getUsersApi = async (): Promise<GetUsersResponse> => {
+export const getUsersApi = async (url:string): Promise<GetUsersResponse> => {
 
-    const url = "https://jsonplaceholder.typicode.com/users";
-    const usersResponse = await axios.get<UserApiModel[]>(url);
+    try {
+        const usersResponse = await axios.get<UserApiModel[]>(url);
 
-    const usersApiModel = usersResponse.data;
-    const users = usersApiModel.map((userApiModel) => {
-        return {
-            id: userApiModel.id,
-            name: userApiModel.name,
-            email: userApiModel.email,
-            city: userApiModel.address.city,
-            company: userApiModel.company.name,
-        } as User;
-    })
+        const usersApiModel = usersResponse.data;
+        const users = usersApiModel.map((userApiModel) => {
+            return {
+                id: userApiModel.id,
+                name: userApiModel.name,
+                email: userApiModel.email,
+                city: userApiModel.address.city,
+                company: userApiModel.company.name,
+            } as User;
+        })
 
-    return {users};
+        return {users};
+    }catch(error){
+        throw new GetUsersApiError();
+    }
 
 }

@@ -5,10 +5,12 @@ import {getUsersApi} from "../../../../api/users";
 
 interface UserListState {
     users: User[];
+    isGetUsersFailed: boolean;
 }
 
 const initialState: UserListState = {
     users: [],
+    isGetUsersFailed: false,
 }
 
 const userList = createSlice({
@@ -17,18 +19,29 @@ const userList = createSlice({
     reducers: {
         getUsersSuccessReducer(state, {payload}: PayloadAction<User[]>) {
             state.users = payload;
+            state.isGetUsersFailed = false;
+        },
+        getUsersFailureReducer(state) {
+            state.users = [];
+            state.isGetUsersFailed = true;
         }
     }
 })
 
 export const {
     getUsersSuccessReducer,
+    getUsersFailureReducer,
 } = userList.actions;
 export default userList.reducer;
 
 
-export const getUsers = (): AppThunk =>
+export const getUsers = (url =  "https://jsonplaceholder.typicode.com/users"): AppThunk =>
     async dispatch => {
-        const getUsersResponse = await getUsersApi();
-        dispatch(getUsersSuccessReducer(getUsersResponse.users));
+        try {
+            const getUsersResponse = await getUsersApi(url);
+            dispatch(getUsersSuccessReducer(getUsersResponse.users));
+        } catch (err) {
+            console.error(err);
+            dispatch(getUsersFailureReducer());
+        }
     };
