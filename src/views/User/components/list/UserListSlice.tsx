@@ -29,6 +29,9 @@ const userList = createSlice({
         },
         userSelectReducer(state, {payload}: PayloadAction<string>) {
             state.selectedUserId = payload;
+        },
+        searchUserByReducer(state, {payload}: PayloadAction<string>){
+            state.users = state.users.filter(user => user.name.includes(payload));
         }
     }
 })
@@ -37,6 +40,7 @@ export const {
     getUsersSuccessReducer,
     getUsersFailureReducer,
     userSelectReducer,
+    searchUserByReducer,
 } = userList.actions;
 export default userList.reducer;
 
@@ -56,3 +60,8 @@ export const userSelect = (userId: string) =>
     async (dispatch: Dispatch) => {
         dispatch(userSelectReducer(userId));
     }
+
+    export const searchUserBy = (name: string) =>
+        async (dispatch: Dispatch) => {
+            dispatch(searchUserByReducer(name));
+        }

@@ -11,7 +11,8 @@ import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import {RootState} from "../../../../config/rootReducer";
 import store from "../../../../config/store";
-import {getUsers} from "./UserListSlice";
+import {getUsers, searchUserBy} from "./UserListSlice";
+import {getUserDetails} from "../details/UserDetailsSlice";
 
 describe("<UserList> component", () => {
 
@@ -110,6 +111,18 @@ describe("<UserList/> reducer", () => {
             let state = store.getState().userList;
             expect(state.isGetUsersFailed).toBeTruthy();
         });
+
+    it("searchUserReducer should list users which is searched by given name keyword",
+        async () => {
+
+            const nameKeyword = "Lea";
+            await store.dispatch(getUsers());
+            await store.dispatch(searchUserBy(nameKeyword));
+
+            let state = store.getState().userList;
+            expect(state.users.length).toEqual(1);
+            expect(state.users[0].name).toContain("Leanne Graham");
+        })
 
 
 });

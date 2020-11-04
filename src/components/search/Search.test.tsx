@@ -18,5 +18,4 @@ describe("<Search> component", () => {
         expect(searchComponentByPlaceholder).toBeTruthy();
     });
 
-
 })
