@@ -22,17 +22,28 @@ export const defaultView = () =>
 export const withHeader = () => {
 
     const userColumnTitles = [
-        "name", "email"
+        "name", "email", "city", "company"
     ];
 
     const users = [
         {
             name: "Leanne Graham",
-            email: "test@gmail.com",
+            email: "Sincere@april.biz",
+            city: "Gwenborough",
+            company: "Romaguera-Crona",
         },
         {
-            name: "Leanne Graham",
+            name: "Ervin Howell",
+            email: "Shanna@melissa.tv",
+            city: "Wisokyburgh",
+            company: "Deckow-Crist",
         },
+        {
+            name: "Zebra Stripes",
+            email: "Nathan@yesenia.net",
+            city: "McKenziehaven",
+            company: "Romaguera-Jacobson",
+        }
     ] as User[];
 
     return (<Table

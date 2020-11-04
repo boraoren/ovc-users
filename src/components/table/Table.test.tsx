@@ -98,4 +98,36 @@ describe("<Table> component", () => {
         })
 
 
+    test(`<Table/> add more data to the users`,
+        () => {
+
+            const users = [{
+                    name: "Leanne Graham",
+                    email: "Sincere@april.biz",
+                    city: "Gwenborough",
+                    company: "Romaguera-Crona",
+                },
+                {
+                    name: "Ervin Howell",
+                    email: "Shanna@melissa.tv",
+                    city: "Wisokyburgh",
+                    company: "Deckow-Crist",
+                },
+                {
+                    name: "Zebra Stripes",
+                    email: "Nathan@yesenia.net",
+                    city: "McKenziehaven",
+                    company: "Romaguera-Jacobson",
+                }] as User[];
+
+            render(<Table users={users}/>)
+
+            const cellComponent = screen.getAllByTestId("nameCellDataTestId");
+
+            cellComponent.forEach((cell, index)=>{
+                expect(cell.textContent).toContain(users[index].name);
+            })
+
+        });
+
 });
