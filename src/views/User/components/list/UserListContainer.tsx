@@ -19,7 +19,6 @@ const UserListContainer = () => {
 
     useEffect(() => {
         dispatch(getUsers());
-        console.log('i fire once');
     }, [dispatch])
 
 
