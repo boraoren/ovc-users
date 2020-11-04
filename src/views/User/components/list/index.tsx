@@ -1,11 +1,15 @@
 import React from 'react';
 import {Helmet} from 'react-helmet'
 import {Table} from "../../../../components/table";
-import {User} from "../../../../models/User";
 import {Header} from "../../../../components/header";
 import {useHistory} from "react-router-dom";
+import {User} from "../../../../models/User";
 
-const UserList = () => {
+interface UserListProps{
+    users: User[];
+}
+
+const UserList:React.FC<UserListProps> = ({users}) => {
 
     const PAGE_TITLE = 'User List'
     const history = useHistory();
@@ -13,29 +17,6 @@ const UserList = () => {
     const dummyColumnTitles = [
         "id", "name", "email", "city", "company"
     ] as string[];
-
-    const dummyUsers = [{
-        id: 1,
-        name: "Leanne Graham",
-        email: "Sincere@april.biz",
-        city: "Gwenborough",
-        company: "Romaguera-Crona",
-    },
-        {
-            id: 2,
-            name: "Ervin Howell",
-            email: "Shanna@melissa.tv",
-            city: "Wisokyburgh",
-            company: "Deckow-Crist",
-        },
-        {
-            id: 3,
-            name: "Zebra Stripes",
-            email: "Nathan@yesenia.net",
-            city: "McKenziehaven",
-            company: "Romaguera-Jacobson",
-        }] as User[];
-
 
     const onRowClick = () => {
         history.push("/user/details");
@@ -49,7 +30,7 @@ const UserList = () => {
                 </title>
             </Helmet>
             <Table
-                data={dummyUsers}
+                data={users}
                 onRowClick={onRowClick}
                 header={<Header
                     dataTestId={"headerDataTestId"}
