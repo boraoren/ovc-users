@@ -69,6 +69,7 @@ describe("<UserList> component", () => {
                         users: dummyUsers,
                         selectedUserId: "1",
                         isGetUsersFailed: false,
+                        isUsersNotFound: false,
                     },
                     userDetails: {
                         userDetails: [],
@@ -122,6 +123,17 @@ describe("<UserList/> reducer", () => {
             let state = store.getState().userList;
             expect(state.users.length).toEqual(1);
             expect(state.users[0].name).toContain("Leanne Graham");
+        })
+
+    it("searchUserReducer should not found users by given name keyword",
+        async () => {
+
+            const nameKeyword = "IamNotAUser";
+            await store.dispatch(getUsers());
+            await store.dispatch(searchUserBy(nameKeyword));
+
+            let state = store.getState().userList;
+            expect(state.isUsersNotFound).toBeTruthy();
         })
 
 

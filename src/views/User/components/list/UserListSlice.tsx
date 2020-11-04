@@ -7,12 +7,14 @@ interface UserListState {
     users: User[];
     isGetUsersFailed: boolean;
     selectedUserId: string;
+    isUsersNotFound: boolean;
 }
 
 const initialState: UserListState = {
     users: [],
     isGetUsersFailed: false,
     selectedUserId: "",
+    isUsersNotFound: false,
 }
 
 const userList = createSlice({
@@ -30,8 +32,15 @@ const userList = createSlice({
         userSelectReducer(state, {payload}: PayloadAction<string>) {
             state.selectedUserId = payload;
         },
-        searchUserByReducer(state, {payload}: PayloadAction<string>){
-            state.users = state.users.filter(user => user.name.includes(payload));
+        searchUserByReducer(state, {payload}: PayloadAction<string>) {
+            const users = state.users.filter(user => user.name.includes(payload))
+
+            if (users.length > 0) {
+                state.users = users;
+                state.isUsersNotFound = false;
+            } else {
+                state.isUsersNotFound = true
+            }
         }
     }
 })
@@ -61,7 +70,7 @@ export const userSelect = (userId: string) =>
         dispatch(userSelectReducer(userId));
     }
 
-    export const searchUserBy = (name: string) =>
-        async (dispatch: Dispatch) => {
-            dispatch(searchUserByReducer(name));
-        }
+export const searchUserBy = (name: string) =>
+    async (dispatch: Dispatch) => {
+        dispatch(searchUserByReducer(name));
+    }
