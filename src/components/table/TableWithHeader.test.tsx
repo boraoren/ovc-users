@@ -19,7 +19,7 @@ describe("<Table> component", () => {
             }]
 
             render(<Table
-                users={users}
+                data={users}
                 header={
                     <Header
                         dataTestId={"headerDataTestId"}
@@ -46,7 +46,7 @@ describe("<Table> component", () => {
             }]
 
             render(<Table
-                users={users}
+                data={users}
                 header={
                     <Header
                         dataTestId={"headerDataTestId"}

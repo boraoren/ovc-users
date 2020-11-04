@@ -1,17 +1,16 @@
 import React, {ReactElement} from 'react';
 import {Text} from "../text";
 import {Cell} from "../cell";
-import {User} from "../../models/User";
 
 interface TableProps {
-    users: User[];
+    data: any;
     header?: ReactElement;
     dataTestId?: string;
 }
 
 
-const getTableContentBy = (user: any) => {
-    return Object.keys(user).map(key => {
+const getTableContentBy = (item: any) => {
+    return Object.keys(item).map(key => {
             return (
                 <Cell
                     key={key}
@@ -19,7 +18,7 @@ const getTableContentBy = (user: any) => {
 
                     <Text
                         dataTestId={`${key}TextDataTestId`}
-                        value={user[key]}
+                        value={item[key]}
                         style={{
                             marginTop: 16,
                             marginBottom: 16,
@@ -34,7 +33,7 @@ const getTableContentBy = (user: any) => {
 
 export const Table: React.FC<TableProps> = (
     {
-        users,
+        data,
         header,
         dataTestId = "tableDataTestId"
     }
@@ -45,11 +44,11 @@ export const Table: React.FC<TableProps> = (
         <div data-testid={dataTestId}>
             {header}
 
-            {users.map(user =>
+            {data.map((item: { id: string | number | null | undefined; }) =>
                 (<div
-                    key={user.id}
+                    key={item.id}
                     style={{display: "flex", justifyContent: "space-around"}}>
-                    {getTableContentBy(user)}
+                    {getTableContentBy(item)}
                 </div>)
             )}
 

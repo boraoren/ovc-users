@@ -42,7 +42,7 @@ const UserList = () => {
                 </title>
             </Helmet>
             <Table
-                users={dummyUsers}
+                data={dummyUsers}
                 header={<Header
                     dataTestId={"headerDataTestId"}
                     columnTitles={dummyColumnTitles}/>}

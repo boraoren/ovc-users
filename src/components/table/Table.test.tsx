@@ -17,7 +17,7 @@ describe("<Table> component", () => {
     beforeAll(() => {
         wrapper = shallow((
             <Table
-                users={users}/>
+                data={users}/>
         ));
     })
 
@@ -58,7 +58,7 @@ describe("<Table> component", () => {
 
     test(`has name type <Cell/> component and <Text/> component value is Leanne Graham`,
         () => {
-            render(<Table users={users}/>)
+            render(<Table data={users}/>)
             const nameCellComponent = screen.getByTestId("nameCellDataTestId");
             expect(nameCellComponent).toBeTruthy();
 
@@ -70,7 +70,7 @@ describe("<Table> component", () => {
 
     test(`<Text/> component top 16`,
         () => {
-            render(<Table users={users}/>)
+            render(<Table data={users}/>)
             const nameTextComponent = screen.getByTestId("nameTextDataTestId");
             const expectedTop = 16;
 
@@ -80,7 +80,7 @@ describe("<Table> component", () => {
 
     test(`<Text/> component bottom 16`,
         () => {
-            render(<Table users={users}/>)
+            render(<Table data={users}/>)
             const nameTextComponent = screen.getByTestId("nameTextDataTestId");
             const expectedBottom = 16;
 
@@ -90,7 +90,7 @@ describe("<Table> component", () => {
 
     test(`<Text/> component left 16`,
         () => {
-            render(<Table users={users}/>)
+            render(<Table data={users}/>)
             const nameTextComponent = screen.getByTestId("nameTextDataTestId");
             const expectedLeft = 16;
 
@@ -124,7 +124,7 @@ describe("<Table> component", () => {
                     company: "Romaguera-Jacobson",
                 }] as User[];
 
-            render(<Table users={users}/>)
+            render(<Table data={users}/>)
 
             const cellComponent = screen.getAllByTestId("nameCellDataTestId");
 

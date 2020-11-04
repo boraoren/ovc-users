@@ -18,7 +18,7 @@ const users = [{
 export const defaultView = () =>
     <Table
         dataTestId={"tableDataTestId"}
-        users={users}
+        data={users}
     />;
 
 export const withHeader = () => {
@@ -53,7 +53,7 @@ export const withHeader = () => {
 
     return (<Table
         dataTestId={"tableDataTestId"}
-        users={object("Users Data",users)}
+        data={object("Users Data",users)}
         header={
             <Header
                 dataTestId={"tableHeaderDataTestId"}
