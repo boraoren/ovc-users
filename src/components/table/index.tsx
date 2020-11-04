@@ -37,7 +37,7 @@ export const Table: React.FC<TableProps> = (
         data,
         header,
         dataTestId = "tableDataTestId",
-        onRowClick = (itemId:number) => {
+        onRowClick = (itemId: number) => {
         }
     }
 ) => {
@@ -52,7 +52,7 @@ export const Table: React.FC<TableProps> = (
                     key={item.id}
                     data-testid={item.id}
                     style={{display: "flex", justifyContent: "space-around"}}
-                    onClick={()=> onRowClick(item.id)}>
+                    onClick={() => onRowClick(item.id)}>
                     {getTableContentBy(item)}
                 </div>)
             )}

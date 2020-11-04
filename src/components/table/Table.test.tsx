@@ -177,8 +177,43 @@ describe("<Table> component", () => {
                 onRowClick={mockRowOnClick}
                 data={users}/>);
 
-            userEvent.click(screen.getByTestId("1"));
+            const selectedRowId = "1";
+            userEvent.click(screen.getByTestId(selectedRowId));
             expect(mockRowOnClick.mock.calls.length).toEqual(1);
+
+        });
+
+    test(`should row background change when mouse over`,
+        () => {
+            const users = [{
+                id: 1,
+                name: "Leanne Graham",
+                email: "Sincere@april.biz",
+                city: "Gwenborough",
+                company: "Romaguera-Crona",
+            },
+                {
+                    id: 2,
+                    name: "Ervin Howell",
+                    email: "Shanna@melissa.tv",
+                    city: "Wisokyburgh",
+                    company: "Deckow-Crist",
+                },
+                {
+                    id: 3,
+                    name: "Zebra Stripes",
+                    email: "Nathan@yesenia.net",
+                    city: "McKenziehaven",
+                    company: "Romaguera-Jacobson",
+                }] as User[];
+
+            render(<Table
+                data={users}/>);
+
+            const selectedRowId = "1";
+            const selectedRow = screen.getByTestId(selectedRowId);
+            userEvent.click(selectedRow);
+            expect(selectedRow).toHaveStyle("background-color: #DCDCDC");
 
         });
 

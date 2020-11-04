@@ -16,13 +16,6 @@ describe("<Cell> component", () => {
         cellComponent = screen.getByTestId('dataTestId');
     })
 
-    test("expected background color is white",
-        () => {
-            const expectedBackgroundColor = "white";
-            expect(cellComponent)
-                .toHaveStyle(`background-color: ${expectedBackgroundColor}`)
-        });
-
     test("expected border bottom size is 1, type is solid and color is D7D7D7",
         () => {
             const expectedBorderBottom = "1px solid #D7D7D7";
