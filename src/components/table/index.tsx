@@ -6,6 +6,7 @@ import {User} from "../../models/User";
 interface TableProps {
     users: User[];
     header?: ReactElement;
+    dataTestId?: string;
 }
 
 
@@ -34,13 +35,14 @@ const getTableContentBy = (user: any) => {
 export const Table: React.FC<TableProps> = (
     {
         users,
-        header
+        header,
+        dataTestId = "tableDataTestId"
     }
 ) => {
 
 
     return (
-        <>
+        <div data-testid={dataTestId}>
             {header}
 
             {users.map(user =>
@@ -51,6 +53,6 @@ export const Table: React.FC<TableProps> = (
                 </div>)
             )}
 
-        </>
+        </div>
     )
 }

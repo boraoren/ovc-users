@@ -17,6 +17,7 @@ const users = [{
 
 export const defaultView = () =>
     <Table
+        dataTestId={"tableDataTestId"}
         users={users}
     />;
 
@@ -51,6 +52,7 @@ export const withHeader = () => {
     ] as User[];
 
     return (<Table
+        dataTestId={"tableDataTestId"}
         users={object("Users Data",users)}
         header={
             <Header
