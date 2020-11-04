@@ -6,6 +6,7 @@ interface TableProps {
     data: any;
     header?: ReactElement;
     dataTestId?: string;
+    onRowClick?: Function;
 }
 
 
@@ -35,19 +36,23 @@ export const Table: React.FC<TableProps> = (
     {
         data,
         header,
-        dataTestId = "tableDataTestId"
+        dataTestId = "tableDataTestId",
+        onRowClick = (itemId:number) => {
+        }
     }
 ) => {
 
-
     return (
-        <div data-testid={dataTestId}>
-            {header}
+        <div
+            data-testid={dataTestId}>
 
+            {header}
             {data.map((item: { id: string | number | null | undefined; }) =>
                 (<div
                     key={item.id}
-                    style={{display: "flex", justifyContent: "space-around"}}>
+                    data-testid={item.id}
+                    style={{display: "flex", justifyContent: "space-around"}}
+                    onClick={()=> onRowClick(item.id)}>
                     {getTableContentBy(item)}
                 </div>)
             )}

@@ -3,10 +3,12 @@ import {Helmet} from 'react-helmet'
 import {Table} from "../../../../components/table";
 import {User} from "../../../../models/User";
 import {Header} from "../../../../components/header";
+import {useHistory} from "react-router-dom";
 
 const UserList = () => {
 
-    const TITLE = 'User List'
+    const PAGE_TITLE = 'User List'
+    const history = useHistory();
 
     const dummyColumnTitles = [
         "id", "name", "email", "city", "company"
@@ -34,15 +36,21 @@ const UserList = () => {
             company: "Romaguera-Jacobson",
         }] as User[];
 
+
+    const onRowClick = () => {
+        history.push("/user/details");
+    }
+
     return (
         <div>
             <Helmet>
                 <title>
-                    {TITLE}
+                    {PAGE_TITLE}
                 </title>
             </Helmet>
             <Table
                 data={dummyUsers}
+                onRowClick={onRowClick}
                 header={<Header
                     dataTestId={"headerDataTestId"}
                     columnTitles={dummyColumnTitles}/>}

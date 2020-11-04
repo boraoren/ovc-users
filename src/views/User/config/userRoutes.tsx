@@ -1,5 +1,5 @@
 import {Redirect, Route, Switch} from "react-router-dom";
-import {UserList} from "../components";
+import {UserDetails, UserList} from "../components";
 import React from "react";
 
 export const UserRoutes = () => {
@@ -7,12 +7,16 @@ export const UserRoutes = () => {
         <Switch>
 
             <Route
-                path="/user/list"
+                exact path="/user/list"
                 component={UserList}/>
 
             <Redirect
-                from="/"
+                exact from="/"
                 to="/user/list"/>
+
+            <Route
+                exact path="/user/details"
+                component={UserDetails}/>
 
         </Switch>
     )

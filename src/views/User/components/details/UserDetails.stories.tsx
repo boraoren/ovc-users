@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from '@storybook/react/types-6-0';
-import {UserDetails} from "./index";
+import UserDetails from "./index";
 
 export default {
     title: 'Views/User Details',

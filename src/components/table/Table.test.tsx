@@ -6,6 +6,7 @@ import {Cell} from "../cell";
 import {render, screen} from "@testing-library/react";
 import {User} from "../../models/User";
 import {UserDetail} from "../../models/UserDetail";
+import userEvent from '@testing-library/user-event'
 
 describe("<Table> component", () => {
 
@@ -104,12 +105,12 @@ describe("<Table> component", () => {
         () => {
 
             const users = [{
-                    id: 1,
-                    name: "Leanne Graham",
-                    email: "Sincere@april.biz",
-                    city: "Gwenborough",
-                    company: "Romaguera-Crona",
-                },
+                id: 1,
+                name: "Leanne Graham",
+                email: "Sincere@april.biz",
+                city: "Gwenborough",
+                company: "Romaguera-Crona",
+            },
                 {
                     id: 2,
                     name: "Ervin Howell",
@@ -129,7 +130,7 @@ describe("<Table> component", () => {
 
             const cellComponent = screen.getAllByTestId("nameCellDataTestId");
 
-            cellComponent.forEach((cell, index)=>{
+            cellComponent.forEach((cell, index) => {
                 expect(cell.textContent).toContain(users[index].name);
             })
 
@@ -153,9 +154,31 @@ describe("<Table> component", () => {
 
             const cellComponent = screen.getAllByTestId("titleCellDataTestId");
 
-            cellComponent.forEach((cell, index)=>{
+            cellComponent.forEach((cell, index) => {
                 expect(cell.textContent).toContain(userDetails[index].title);
             })
+
+        });
+
+    test(`should open given link when the row is clicked`,
+        () => {
+
+            const users = [{
+                id: 1,
+                name: "Leanne Graham",
+                email: "Sincere@april.biz",
+                city: "Gwenborough",
+                company: "Romaguera-Crona",
+            }];
+
+            const mockRowOnClick = jest.fn();
+
+            render(<Table
+                onRowClick={mockRowOnClick}
+                data={users}/>);
+
+            userEvent.click(screen.getByTestId("1"));
+            expect(mockRowOnClick.mock.calls.length).toEqual(1);
 
         });
 

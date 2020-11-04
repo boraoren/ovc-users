@@ -2,8 +2,11 @@ import React from "react";
 import {Table} from "../../../../components/table";
 import {Header} from "../../../../components/header";
 import {UserDetail} from "../../../../models/UserDetail";
+import {Helmet} from 'react-helmet'
 
-export const UserDetails = () => {
+const UserDetails = () => {
+
+    const PAGE_TITLE = 'User Details'
 
     const dummyColumnTitles = [
         "title", "body"
@@ -18,13 +21,24 @@ export const UserDetails = () => {
         title: "qui est esse",
         body: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
     }] as UserDetail[];
+
     return (
-        <Table
+        <>
+            <Helmet>
+                <title>
+                    {PAGE_TITLE}
+                </title>
+            </Helmet>
+
+            <Table
             data={dummyDetails}
             header={<Header
                 dataTestId={"headerDataTestId"}
                 columnTitles={dummyColumnTitles}/>}
         />
+        </>
     )
 
 }
+
+export default UserDetails;
