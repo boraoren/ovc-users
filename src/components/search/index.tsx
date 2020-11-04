@@ -9,9 +9,10 @@ export const Search: React.FC<SearchProps> = (
 ) => {
 
     return (
-        <div data-testid={dataTestId}>
-            SEARCH
-        </div>
+        <input
+            data-testid={dataTestId}
+            type={"search"}
+            placeholder={"Search By Name"}/>
     )
 
 }
