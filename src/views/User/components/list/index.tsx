@@ -2,25 +2,24 @@ import React from 'react';
 import {Helmet} from 'react-helmet'
 import {Table} from "../../../../components/table";
 import {Header} from "../../../../components/header";
-import {useHistory} from "react-router-dom";
 import {User} from "../../../../models/User";
 
-interface UserListProps{
+interface UserListProps {
     users: User[];
+    onRowClick?: Function;
 }
 
-const UserList:React.FC<UserListProps> = ({users}) => {
+const UserList: React.FC<UserListProps> = (
+    {
+        users,
+        onRowClick
+    }) => {
 
     const PAGE_TITLE = 'User List'
-    const history = useHistory();
 
     const dummyColumnTitles = [
         "id", "name", "email", "city", "company"
     ] as string[];
-
-    const onRowClick = () => {
-        history.push("/user/details");
-    }
 
     return (
         <div>

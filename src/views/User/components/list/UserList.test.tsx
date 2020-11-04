@@ -40,7 +40,8 @@ describe("<UserList> component", () => {
     test("has <Table/> component with <Header/>",
         () => {
 
-            render(<UserList users={dummyUsers}/>)
+            render(<UserList
+                users={dummyUsers}/>)
 
             const tableComponent = screen
                 .getByTestId("tableDataTestId");

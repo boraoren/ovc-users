@@ -1,5 +1,5 @@
 import {Redirect, Route, Switch} from "react-router-dom";
-import {UserDetails, UserListContainer} from "../components";
+import {UserDetailsContainer, UserListContainer} from "../components";
 import React from "react";
 
 export const UserRoutes = () => {
@@ -16,7 +16,7 @@ export const UserRoutes = () => {
 
             <Route
                 exact path="/user/details"
-                component={UserDetails}/>
+                component={UserDetailsContainer}/>
 
         </Switch>
     )

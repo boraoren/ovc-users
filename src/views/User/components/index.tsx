@@ -1,4 +1,4 @@
 import UserListContainer from "./list/UserListContainer";
-import UserDetails from "./details"
+import UserDetailsContainer from "./details/UserDetailsContainer"
 
-export { UserListContainer, UserDetails };
+export { UserListContainer, UserDetailsContainer };

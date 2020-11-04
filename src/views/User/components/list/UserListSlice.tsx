@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, Dispatch, PayloadAction} from "@reduxjs/toolkit";
 import {User} from "../../../../models/User";
 import {AppThunk} from "../../../../config/store";
 import {getUsersApi} from "../../../../api/users";
@@ -6,11 +6,13 @@ import {getUsersApi} from "../../../../api/users";
 interface UserListState {
     users: User[];
     isGetUsersFailed: boolean;
+    selectedUserId: string;
 }
 
 const initialState: UserListState = {
     users: [],
     isGetUsersFailed: false,
+    selectedUserId: "",
 }
 
 const userList = createSlice({
@@ -24,6 +26,9 @@ const userList = createSlice({
         getUsersFailureReducer(state) {
             state.users = [];
             state.isGetUsersFailed = true;
+        },
+        userSelectReducer(state, {payload}: PayloadAction<string>) {
+            state.selectedUserId = payload;
         }
     }
 })
@@ -31,11 +36,12 @@ const userList = createSlice({
 export const {
     getUsersSuccessReducer,
     getUsersFailureReducer,
+    userSelectReducer,
 } = userList.actions;
 export default userList.reducer;
 
 
-export const getUsers = (url =  "https://jsonplaceholder.typicode.com/users"): AppThunk =>
+export const getUsers = (url = "https://jsonplaceholder.typicode.com/users"): AppThunk =>
     async dispatch => {
         try {
             const getUsersResponse = await getUsersApi(url);
@@ -45,3 +51,8 @@ export const getUsers = (url =  "https://jsonplaceholder.typicode.com/users"): A
             dispatch(getUsersFailureReducer());
         }
     };
+
+export const userSelect = (userId: string) =>
+    async (dispatch: Dispatch) => {
+        dispatch(userSelectReducer(userId));
+    }
