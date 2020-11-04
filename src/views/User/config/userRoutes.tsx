@@ -1,7 +1,6 @@
 import {Redirect, Route, Switch} from "react-router-dom";
-import UserList from "../components/list";
+import {UserList} from "../components";
 import React from "react";
-
 
 export const UserRoutes = () => {
     return (
@@ -17,4 +16,4 @@ export const UserRoutes = () => {
 
         </Switch>
     )
-}
+};
