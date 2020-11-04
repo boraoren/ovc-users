@@ -66,6 +66,12 @@ describe("<UserList> component", () => {
                 <Provider store={mockStore({
                     userList: {
                         users: dummyUsers,
+                        selectedUserId: "1",
+                        isGetUsersFailed: false,
+                    },
+                    userDetails: {
+                        userDetails: [],
+                        isGetUserDetailsFailed: false,
                     }
                 } as RootState)}>
                     <Router history={history}>
