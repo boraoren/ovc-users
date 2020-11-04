@@ -59,11 +59,6 @@ describe("<Header> component", () => {
     test("expected content justification is space around",
         () => {
 
-            const object: object = {
-                name: 'Leanne',
-                surname: 'Graham',
-            }
-
             render(<Header
                 dataTestId={"dataTestId"}
                 columnTitles={columnTitles}

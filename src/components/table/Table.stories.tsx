@@ -3,7 +3,7 @@ import {Meta} from '@storybook/react/types-6-0';
 import {Table} from "./index";
 import {Header} from "../header";
 import {User} from "../../models/User";
-import {object, select} from "@storybook/addon-knobs";
+import {object} from "@storybook/addon-knobs";
 
 export default {
     title: 'Components/Table',
@@ -11,6 +11,7 @@ export default {
 } as Meta;
 
 const users = [{
+    id: 1,
     name: "Leanne Graham",
 }] as User[];
 
@@ -27,18 +28,21 @@ export const withHeader = () => {
 
     const users = [
         {
+            id: 1,
             name: "Leanne Graham",
             email: "Sincere@april.biz",
             city: "Gwenborough",
             company: "Romaguera-Crona",
         },
         {
+            id: 2,
             name: "Ervin Howell",
             email: "Shanna@melissa.tv",
             city: "Wisokyburgh",
             company: "Deckow-Crist",
         },
         {
+            id: 3,
             name: "Zebra Stripes",
             email: "Nathan@yesenia.net",
             city: "McKenziehaven",

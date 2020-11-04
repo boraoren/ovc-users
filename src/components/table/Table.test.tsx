@@ -10,6 +10,7 @@ describe("<Table> component", () => {
 
     let wrapper: ShallowWrapper;
     const users: User[] = [{
+        id: 1,
         name: "Leanne Graham",
     }]
 
@@ -102,18 +103,21 @@ describe("<Table> component", () => {
         () => {
 
             const users = [{
+                    id: 1,
                     name: "Leanne Graham",
                     email: "Sincere@april.biz",
                     city: "Gwenborough",
                     company: "Romaguera-Crona",
                 },
                 {
+                    id: 2,
                     name: "Ervin Howell",
                     email: "Shanna@melissa.tv",
                     city: "Wisokyburgh",
                     company: "Deckow-Crist",
                 },
                 {
+                    id: 3,
                     name: "Zebra Stripes",
                     email: "Nathan@yesenia.net",
                     city: "McKenziehaven",

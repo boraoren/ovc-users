@@ -14,6 +14,7 @@ describe("<Table> component", () => {
             ]
 
             const users: User[] = [{
+                id: 1,
                 name: "Leanne Graham",
             }]
 
@@ -39,6 +40,7 @@ describe("<Table> component", () => {
             ]
 
             const users: User[] = [{
+                id: 1,
                 name: "Leanne Graham",
                 email: "Sincere@april.biz",
             }]
