@@ -3,22 +3,13 @@ import {Text} from "../text";
 
 interface HeaderProps {
     dataTestId: string;
-    object: object;
-}
-
-const getHeaderColumnTitlesBy = (object: object) => {
-    return Object.keys(object).map(key => {
-        return (<Text
-            key={key}
-            dataTestId={`${key}ColumnTitleDataTestId`}
-            value={`${key.toUpperCase()}`}/>)
-    });
+    columnTitles: string[];
 }
 
 export const Header: React.FC<HeaderProps> = (
     {
         dataTestId,
-        object
+        columnTitles
     }) => {
     return (
         <div
@@ -27,7 +18,13 @@ export const Header: React.FC<HeaderProps> = (
                 display: "flex",
                 justifyContent: "space-around"
             }}>
-            {getHeaderColumnTitlesBy(object)}
+
+            {columnTitles.map((columnTitle)=>
+                <Text
+                    key={columnTitle}
+                    dataTestId={`${columnTitle}ColumnTitleDataTestId`}
+                    value={`${columnTitle.toUpperCase()}`}/>
+            )}
         </div>
     )
 }

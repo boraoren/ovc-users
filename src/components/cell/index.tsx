@@ -15,6 +15,7 @@ export const Cell: React.FC<CellProps> = (
         <div
             data-testid={dataTestId}
             style={{
+                flex: 1,
                 backgroundColor: "white",
                 borderBottom: "1px solid #D7D7D7",
             }}>
