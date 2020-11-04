@@ -9,14 +9,14 @@ export default {
 
 export const defaultView = () => {
 
-    const object: object = {
-        name: 'Leanne',
-        surname: 'Graham',
-    }
+
+    const columnTitles: string[] = [
+        "name", "email", "city", "company"
+    ]
 
     return (<Header
         dataTestId={"dataTestId"}
-        object={object}
+        columnTitles={columnTitles}
     />)
 }
 

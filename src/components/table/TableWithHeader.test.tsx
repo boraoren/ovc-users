@@ -9,6 +9,10 @@ describe("<Table> component", () => {
     test(`with <Header/> for name`,
         () => {
 
+            const columnTitles: string[] = [
+                "name",
+            ]
+
             const users: User[] = [{
                 name: "Leanne Graham",
             }]
@@ -18,7 +22,7 @@ describe("<Table> component", () => {
                 header={
                     <Header
                         dataTestId={"headerDataTestId"}
-                        object={users[0]}/>
+                        columnTitles={columnTitles}/>
                 }/>)
 
             const headerComponent = screen
@@ -30,6 +34,10 @@ describe("<Table> component", () => {
     test(`with <Header/> for name and email`,
         () => {
 
+            const columnTitles: string[] = [
+                "name", "email",
+            ]
+
             const users: User[] = [{
                 name: "Leanne Graham",
                 email: "Sincere@april.biz",
@@ -40,7 +48,7 @@ describe("<Table> component", () => {
                 header={
                     <Header
                         dataTestId={"headerDataTestId"}
-                        object={users[0]}/>
+                        columnTitles={columnTitles}/>
                 }/>)
 
             const headerComponent = screen

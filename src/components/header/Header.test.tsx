@@ -4,17 +4,16 @@ import {Header} from "./index";
 
 describe("<Header> component", () => {
 
+    const columnTitles: string[] = [
+        "name", "email", "city", "company"
+    ]
+
     test("column titles by list of object keys",
         () => {
 
-            const object: object = {
-                name: 'Leanne',
-                surname: 'Graham',
-            }
-
             render(<Header
                 dataTestId={"dataTestId"}
-                object={object}
+                columnTitles={columnTitles}
             />)
 
             const headerComponent = screen
@@ -25,9 +24,18 @@ describe("<Header> component", () => {
                 .getByTestId("nameColumnTitleDataTestId")
             expect(nameColumnTitleComponent).toHaveTextContent("NAME");
 
-            const surnameColumnTitleComponent = screen
-                .getByTestId("surnameColumnTitleDataTestId")
-            expect(surnameColumnTitleComponent).toHaveTextContent("SURNAME");
+            const emailColumnTitleComponent = screen
+                .getByTestId("emailColumnTitleDataTestId")
+            expect(emailColumnTitleComponent).toHaveTextContent("EMAIL");
+
+            const cityColumnTitleComponent = screen
+                .getByTestId("cityColumnTitleDataTestId")
+            expect(cityColumnTitleComponent).toHaveTextContent("CITY");
+
+            const companyColumnTitleComponent = screen
+                .getByTestId("companyColumnTitleDataTestId")
+            expect(companyColumnTitleComponent).toHaveTextContent("COMPANY");
+
 
         })
 
@@ -35,14 +43,9 @@ describe("<Header> component", () => {
     test("expected style / display is flex for header column title elements",
         () => {
 
-            const object: object = {
-                name: 'Leanne',
-                surname: 'Graham',
-            }
-
             render(<Header
                 dataTestId={"dataTestId"}
-                object={object}
+                columnTitles={columnTitles}
             />)
 
             const headerComponent = screen
@@ -63,7 +66,7 @@ describe("<Header> component", () => {
 
             render(<Header
                 dataTestId={"dataTestId"}
-                object={object}
+                columnTitles={columnTitles}
             />)
 
             const headerComponent = screen

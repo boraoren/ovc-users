@@ -44,8 +44,7 @@ export const Table: React.FC<TableProps> = (
             {header}
 
             {users.map(user =>
-                (<div
-                    style={{display: "flex", justifyContent: "space-around"}}>
+                (<div style={{display: "flex", justifyContent: "space-around"}}>
                     {getTableContentBy(user)}
                 </div>)
             )}
