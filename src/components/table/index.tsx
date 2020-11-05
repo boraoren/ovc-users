@@ -4,6 +4,7 @@ import {Cell} from "../cell";
 
 interface TableProps {
     data: any;
+    search?: ReactElement;
     header?: ReactElement;
     dataTestId?: string;
     onRowClick?: Function;
@@ -35,6 +36,7 @@ const getTableContentBy = (item: any) => {
 export const Table: React.FC<TableProps> = (
     {
         data,
+        search,
         header,
         dataTestId = "tableDataTestId",
         onRowClick = (itemId: number) => {
@@ -45,7 +47,7 @@ export const Table: React.FC<TableProps> = (
     return (
         <div
             data-testid={dataTestId}>
-
+            {search}
             {header}
             {data.map((item: { id: string | number | null | undefined; }) =>
                 (<div

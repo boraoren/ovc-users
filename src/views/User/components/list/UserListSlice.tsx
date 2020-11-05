@@ -5,6 +5,7 @@ import {getUsersApi} from "../../../../api/users";
 
 interface UserListState {
     users: User[];
+    usersFound: User[];
     isGetUsersFailed: boolean;
     selectedUserId: string;
     isUsersNotFound: boolean;
@@ -12,6 +13,7 @@ interface UserListState {
 
 const initialState: UserListState = {
     users: [],
+    usersFound: [],
     isGetUsersFailed: false,
     selectedUserId: "",
     isUsersNotFound: false,
@@ -32,13 +34,14 @@ const userList = createSlice({
         userSelectReducer(state, {payload}: PayloadAction<string>) {
             state.selectedUserId = payload;
         },
-        searchUserByReducer(state, {payload}: PayloadAction<string>) {
-            const users = state.users.filter(user => user.name.includes(payload))
+        searchUserByNameReducer(state, {payload}: PayloadAction<string>) {
+            const usersFound = state.users.filter(user => user.name.includes(payload))
 
-            if (users.length > 0) {
-                state.users = users;
+            if (usersFound.length > 0) {
+                state.usersFound = usersFound;
                 state.isUsersNotFound = false;
             } else {
+                state.usersFound = [];
                 state.isUsersNotFound = true
             }
         }
@@ -49,7 +52,7 @@ export const {
     getUsersSuccessReducer,
     getUsersFailureReducer,
     userSelectReducer,
-    searchUserByReducer,
+    searchUserByNameReducer,
 } = userList.actions;
 export default userList.reducer;
 
@@ -70,7 +73,7 @@ export const userSelect = (userId: string) =>
         dispatch(userSelectReducer(userId));
     }
 
-export const searchUserBy = (name: string) =>
+export const searchUserByName = (keyword: string) =>
     async (dispatch: Dispatch) => {
-        dispatch(searchUserByReducer(name));
+        dispatch(searchUserByNameReducer(keyword));
     }

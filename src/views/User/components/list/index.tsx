@@ -6,13 +6,15 @@ import {User} from "../../../../models/User";
 
 interface UserListProps {
     users: User[];
+    search?: React.ReactElement;
     onRowClick?: Function;
 }
 
 const UserList: React.FC<UserListProps> = (
     {
         users,
-        onRowClick
+        onRowClick,
+        search,
     }) => {
 
     const PAGE_TITLE = 'User List'
@@ -31,6 +33,7 @@ const UserList: React.FC<UserListProps> = (
             <Table
                 data={users}
                 onRowClick={onRowClick}
+                search={search}
                 header={<Header
                     dataTestId={"headerDataTestId"}
                     columnTitles={dummyColumnTitles}/>}

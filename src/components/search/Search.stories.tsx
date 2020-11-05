@@ -7,7 +7,7 @@ export default {
     component: Search,
 } as Meta;
 
-export const defaultView = () => <Search/>;
+export const defaultView = () => <Search onSearch={()=>{}}/>;
 
 defaultView.parameters = {
     jest: ['Search.test.tsx']

@@ -1,5 +1,5 @@
 import React from "react";
-import {render, screen, waitFor, within} from "@testing-library/react";
+import {render, screen, waitFor, within, fireEvent} from "@testing-library/react";
 import UserList from "./index";
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
@@ -9,10 +9,9 @@ import {User} from "../../../../models/User";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import {RootState} from "../../../../config/rootReducer";
+import rootReducer, {RootState} from "../../../../config/rootReducer";
 import store from "../../../../config/store";
-import {getUsers, searchUserBy} from "./UserListSlice";
-import {getUserDetails} from "../details/UserDetailsSlice";
+import {getUsers, searchUserByName} from "./UserListSlice";
 
 describe("<UserList> component", () => {
 
@@ -69,7 +68,8 @@ describe("<UserList> component", () => {
                         users: dummyUsers,
                         selectedUserId: "1",
                         isGetUsersFailed: false,
-                        isUsersNotFound: false,
+                        isUsersNotFound: true,
+                        usersFound: [],
                     },
                     userDetails: {
                         userDetails: [],
@@ -89,6 +89,36 @@ describe("<UserList> component", () => {
 
             await waitFor(() => expect(document.title)
                 .toEqual("User Details"));
+
+        });
+
+    test(`should list users which is searched by given name keyword`,
+        async () => {
+
+            const history = createMemoryHistory()
+
+            render(
+                <Provider store={store}>
+                    <Router history={history}>
+                        <UserRoutes/>
+                    </Router>
+                </Provider>
+            )
+
+            const searchComponent = screen.getByTestId("searchDataTestId");
+            expect(searchComponent).toBeTruthy();
+
+            await store.dispatch(getUsers());
+            await userEvent.type(
+                await screen.findByTestId("searchDataTestId"),
+                'Lea',
+            );
+
+            const nameCellComponents = screen.getByTestId("nameCellDataTestId");
+            const nameTextComponent = within(nameCellComponents)
+                .getByTestId("nameTextDataTestId")
+
+            expect(nameTextComponent).toHaveTextContent("Leanne");
 
         });
 
@@ -118,11 +148,11 @@ describe("<UserList/> reducer", () => {
 
             const nameKeyword = "Lea";
             await store.dispatch(getUsers());
-            await store.dispatch(searchUserBy(nameKeyword));
+            await store.dispatch(searchUserByName(nameKeyword));
 
             let state = store.getState().userList;
-            expect(state.users.length).toEqual(1);
-            expect(state.users[0].name).toContain("Leanne Graham");
+            expect(state.usersFound.length).toEqual(1);
+            expect(state.usersFound[0].name).toContain("Leanne Graham");
         })
 
     it("searchUserReducer should not found users by given name keyword",
@@ -130,7 +160,7 @@ describe("<UserList/> reducer", () => {
 
             const nameKeyword = "IamNotAUser";
             await store.dispatch(getUsers());
-            await store.dispatch(searchUserBy(nameKeyword));
+            await store.dispatch(searchUserByName(nameKeyword));
 
             let state = store.getState().userList;
             expect(state.isUsersNotFound).toBeTruthy();
