@@ -5,7 +5,7 @@ import {Router} from 'react-router-dom';
 import App from "./App";
 
 
-describe("<App>", () => {
+describe("<App/>", () => {
 
     test("redirect from '/' to the 'user/list'", async () => {
 

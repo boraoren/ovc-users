@@ -41,7 +41,6 @@ export const getUserDetails = (userId: string,url = "https://jsonplaceholder.typ
             const getUserDetailsResponse = await getUserDetailsApi(url, userId);
             dispatch(getUserDetailsSuccessReducer(getUserDetailsResponse.userDetails));
         } catch (err) {
-            console.error(err);
             dispatch(getUserDetailsFailureReducer());
         }
     };

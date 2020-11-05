@@ -35,7 +35,8 @@
     "prebuild:storybook": "npm run test:generate-output",
     "build:storybook": "build-storybook -c .storybook -o build/",
     "predeploy": "npm run build:storybook",
-    "deploy": "gh-pages -d build/"
+    "deploy": "gh-pages -d build/",
+    "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
@@ -108,5 +109,14 @@
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.tsx",
+      "store.tsx",
+      "reportWebVitals.ts",
+      ".stories.tsx"
+    ],
+    "coverageReporters": ["json", "html"]
   }
 }

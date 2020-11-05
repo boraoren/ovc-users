@@ -63,7 +63,6 @@ export const getUsers = (url = "https://jsonplaceholder.typicode.com/users"): Ap
             const getUsersResponse = await getUsersApi(url);
             dispatch(getUsersSuccessReducer(getUsersResponse.users));
         } catch (err) {
-            console.error(err);
             dispatch(getUsersFailureReducer());
         }
     };
