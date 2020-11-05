@@ -57,3 +57,9 @@ check [project github actions](https://github.com/boraoren/ovc-users/actions)
 check [github issues](https://github.com/boraoren/ovc-users/issues)
 
 ![Github Issues](documentations/images/githubIssues.png)
+
+## RELEASES
+check [github releases](https://github.com/boraoren/ovc-users/releases)
+
+![Github Releases](documentations/images/releases.png)
+
